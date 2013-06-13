@@ -1,3 +1,4 @@
+
 #include<iostream>
 #include<new>
 using namespace std;
@@ -8,7 +9,7 @@ struct node
 }*root=NULL;
   node* newNode(node *root,int val)
 { 
-  
+	
 	if(root==NULL)
 		{	root=new node;
 
@@ -33,11 +34,11 @@ void inorder(node *root)
 		
 		{
 			inorder(root->left);
-			cout<<root->data;
+			cout<<"\t"<<root->data;
 			inorder(root->right);
 		}
 }
-int islca(node *root,int n1,int n2)
+/*int islca(node *root,int n1,int n2)
 	{
 		if(root==NULL)
 			{	cout<<"no ancestor";
@@ -49,11 +50,22 @@ int islca(node *root,int n1,int n2)
 
 
 
+	}*/
 
-
-
-
-	}
+node* mirror(node *root)
+	{
+		if(root==NULL)
+			return NULL;
+		else
+			{	node *temp=new node;
+				mirror(root->left);
+				mirror(root->right);
+				temp=root->left;
+				root->left=root->right;
+				root->right=temp; 
+			}
+     		return root;
+	}	
 int main()
 { root=newNode(root,11);
   newNode(root,2);
@@ -63,6 +75,9 @@ int main()
   newNode(root,12);
   newNode(root,19);
 	
+  inorder(root);
+  root=mirror(root);
+  cout<<"\n";
   inorder(root);
   return 0;
 }	
