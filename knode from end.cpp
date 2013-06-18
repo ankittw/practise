@@ -7,7 +7,7 @@ struct node
 }*head=NULL;
 
 void insert(int val)
-  { if(head==NULL)
+	{ if(head==NULL)
 		{ 	head=new node;
 	          	head->data=val;
 		  	head->next=NULL;
@@ -42,7 +42,28 @@ void displayK(node *head,int k)
 		cout<<"\nelement is printed"<<head->next->data;
 		head->next=head->next->next;
 		
-	}		
+	}	
+node* reverse(node *head)
+{
+	node *cur=NULL;
+	node *temp=new node;
+	
+		while(head)
+			{	temp=head->next;
+				head->next=cur;	
+				cur=head;
+				head=temp;
+			}	
+	return cur;
+		
+}	
+
+
+
+
+
+
+	
 int main()
 	{
 		insert(5);
@@ -53,6 +74,9 @@ int main()
 		display(head);
 		cout<<"\n";
 		displayK(head,5);
+		display(head);
+		cout<<"\n";
+		head=reverse(head);
 		display(head);
 		return 0;
 	}
