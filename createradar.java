@@ -118,7 +118,7 @@ import com.esri.arcgis.system.esriCoreErrorReturnCodes;
 import com.esri.arcgis.system.esriUnits;
 import com.esri.arcgis.systemUI.esriArcGISUri;
 
-  public class CreateRadarRings {
+	public class CreateRadarRings {
 		
 		public void createRadar(String ID,String Type,Double xLat, Double xLong, String RdrID, Double elevVal,String displayType) {
 			
@@ -222,8 +222,8 @@ import com.esri.arcgis.systemUI.esriArcGISUri;
 			
 			IPoint obstaclePoint = new Point() ;
 			geoColl = new MultiPatch();
-			
-			for(vertical =0; vertical <= arrRng.length-2;vertical++){
+			for(vertical =0; vertical <= arrRng.length-1;vertical++){
+			//for(vertical =0; vertical <= arrRng.length-2;vertical++){
 				pointCol = new Ring();
 				minusValFirst =Double.parseDouble(arrAngle[vertical]);
 				minusValSecond = Double.parseDouble(arrAngle[vertical+1]);
@@ -266,21 +266,23 @@ import com.esri.arcgis.systemUI.esriArcGISUri;
 						pointCol.addPoint(surfacePt, null, null);
 					}
 				}
-				
-				if(vertical==arrRng.length-2){
-					pointCol.addPoint(point, null, null);
-					
-				}
+			
+				// updated this code on 19/6/13 commented all the part below
+//				if(vertical==arrRng.length-2){
+//					
+//					pointCol.addPoint(point, null, null);
+//					
+//				}
 				
 				ringColl=(IRing) pointCol;
-				//ringColl.close();
+				ringColl.close();
 				geoColl.addGeometry(ringColl, null, null);
 			
 			}
 					
 			IGeometryCollection geometryColl = new MultiPatch();
 			IRing newring = (IRing) geoColl.getGeometry(0);
-			//newring.close();
+			newring.close();
 			geometryColl.addGeometry(newring, null, null);
 			
 			
@@ -299,15 +301,23 @@ import com.esri.arcgis.systemUI.esriArcGISUri;
 					newColl.addPoint(pointCollSecondGeometry.getPoint(ringCount+1), null, null);
 					newColl.addPoint(pointCollFirstGeometry.getPoint(ringCount+1),null,null);
 					newring=(IRing) newColl;
+					
+					//geometryColl.addGeometry(newring, null,null);
 					newring.close();
-					geometryColl.addGeometry(newring, null,null);
-				}
+				}//geometryColl.addGeometry(newring, null,null);
 			}
+			// updated on 19/6/13
 			
-			newring = (IRing) geoColl.getGeometry(geoColl.getGeometryCount()-1);
+			for(int i=1;i<=9;i++)
+			{newring = (IRing) geoColl.getGeometry(geoColl.getGeometryCount()-i);
 			newring.close();
 			geometryColl.addGeometry(newring, null, null);
+			}
 			
+			//actual code
+//			newring = (IRing) geoColl.getGeometry(geoColl.getGeometryCount()-1);
+//			newring.close();
+//			geometryColl.addGeometry(newring, null, null);
 			IGeometry geometry = (IGeometry) geometryColl;
 			ADAPSUtil.makeZAware(geometry);
 
