@@ -1,2 +1,2 @@
-just a collection of practce programs
-=====================================
+just a collection of practice programs
+======================================
