@@ -8,12 +8,15 @@ import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Rectangle;
+import java.util.Random;
+
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 public class memory {
-
-  private JFrame jFrame = null;  //  @jve:decl-index=0:visual-constraint="98,10"
+	public  int a[]=new int[12];
+	public int state=0;
+	private JFrame jFrame = null;  //  @jve:decl-index=0:visual-constraint="98,10"
 	private JButton jButton = null;
 	private JPanel jpanel = null;
 	private JButton jButton1 = null;
@@ -36,11 +39,12 @@ public class memory {
 	 * 	
 	 * @return javax.swing.JFrame	
 	 */
-	private JFrame getJFrame() {
+	public JFrame getJFrame() {
 		if (jFrame == null) {
 			jFrame = new JFrame();
 			jFrame.setSize(new Dimension(320, 280));
 			jFrame.setContentPane(getJpanel());
+			jFrame.setVisible(true);
 		}
 		return jFrame;
 	}
@@ -93,10 +97,13 @@ public class memory {
 		if (jButton1 == null) {
 			jButton1 = new JButton();
 			jButton1.setBounds(new Rectangle(11, 10, 51,59));
+			
 			jButton1.setText("??");
 			jButton1.addActionListener(new java.awt.event.ActionListener() {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
-					System.out.println("actionPerformed()"); // TODO Auto-generated Event stub actionPerformed()
+					System.out.println("actionPerformed()");
+					jButton1.setText(""+a[0]);
+					// TODO Auto-generated Event stub actionPerformed()
 				}
 			});
 			
@@ -114,6 +121,13 @@ public class memory {
 			jButton2 = new JButton();
 			jButton2.setBounds(new Rectangle(65, 10, 51,59));
 			jButton2.setText("??");
+			jButton2.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton2.setText(""+a[1]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton2;
 	}
@@ -128,6 +142,13 @@ public class memory {
 			jButton3 = new JButton();
 			jButton3.setBounds(new Rectangle(118, 10, 51,59));
 			jButton3.setText("??");
+			jButton3.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton3.setText(""+a[2]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton3;
 	}
@@ -142,6 +163,13 @@ public class memory {
 			jButton4 = new JButton();
 			jButton4.setBounds(new Rectangle(166, 10,51,59 ));
 			jButton4.setText("??");
+			jButton4.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton4.setText(""+a[3]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton4;
 	}
@@ -157,6 +185,13 @@ public class memory {
 			jButton5.setBounds(new Rectangle(11, 80, 51,59));
 			
 			jButton5.setText("?");
+			jButton5.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton5.setText(""+a[4]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton5;
 	}
@@ -171,6 +206,13 @@ public class memory {
 			jButton6 = new JButton();
 			jButton6.setBounds(new Rectangle(65, 80,51,59));
 			jButton6.setText("??");
+			jButton6.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton6.setText(""+a[5]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton6;
 	}
@@ -185,6 +227,13 @@ public class memory {
 			jButton7 = new JButton();
 			jButton7.setBounds(new Rectangle(118, 80, 51,59));
 			jButton7.setText("??");
+			jButton7.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton7.setText(""+a[6]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton7;
 	}
@@ -199,6 +248,13 @@ public class memory {
 			jButton8 = new JButton();
 			jButton8.setBounds(new Rectangle(166, 80, 51,59));
 			jButton8.setText("??");
+			jButton8.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton8.setText(""+a[7]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton8;
 	}
@@ -213,6 +269,13 @@ public class memory {
 			jButton9 = new JButton();
 			jButton9.setBounds(new Rectangle(11, 147, 51,59));
 			jButton9.setText("??");
+			jButton9.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton9.setText(""+a[8]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton9;
 	}
@@ -227,6 +290,13 @@ public class memory {
 			jButton10 = new JButton();
 			jButton10.setBounds(new Rectangle(65, 147, 51,59));
 			jButton10.setText("??");
+			jButton10.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton10.setText(""+a[9]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton10;
 	}
@@ -241,6 +311,13 @@ public class memory {
 			jButton11 = new JButton();
 			jButton11.setBounds(new Rectangle(118, 147, 51,59));
 			jButton11.setText("??");
+			jButton11.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton11.setText(""+a[10]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton11;
 	}
@@ -255,6 +332,13 @@ public class memory {
 			jButton12 = new JButton();
 			jButton12.setBounds(new Rectangle(165, 147, 51, 59));
 			jButton12.setText("??");
+			jButton12.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()");
+					jButton12.setText(""+a[11]);
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return jButton12;
 	}
@@ -282,16 +366,57 @@ public class memory {
 			rstrtbtn = new JButton();
 			rstrtbtn.setBounds(new Rectangle(233, 95, 78, 33));
 			rstrtbtn.setText("Restart");
+			rstrtbtn.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent e) {
+					System.out.println("actionPerformed()"); 
+					restart();
+					state=0;
+					getJButton1().setText("??");
+					getJButton2().setText("??");
+					getJButton3().setText("??");
+					getJButton4().setText("??");
+					getJButton5().setText("??");
+					getJButton6().setText("??");
+					getJButton7().setText("??");
+					getJButton8().setText("??");
+					getJButton9().setText("??");
+					getJButton10().setText("??");
+					getJButton11().setText("??");
+					getJButton12().setText("??");
+					// TODO Auto-generated Event stub actionPerformed()
+				}
+			});
 		}
 		return rstrtbtn;
 	}
+	private void restart()
+	{	Random r=new Random();
+		int i=5,x,y,z;
+		for(i=0;i<=5;i++)
+		{ 	a[i+6]=r.nextInt(100);
+			a[i]=a[i+6];
+		}
+		
+		
+			
+	}
+	public void stateman()
+	{	if(state==0)
+		{ System.out.println("none is open");
+			state=1;
+		}
+	}	
+		
+	
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		memory ms=new memory();
+		ms.getJFrame();
+		
 	}
 
 }
